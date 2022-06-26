@@ -4,13 +4,18 @@
     --Dark-cyan: hsl(158, 36%, 37%);
     --Cream: hsl(30, 38%, 92%);
     --Very-dark-blue: hsl(212, 21%, 14%);
-    --Dark-grayish-blue: hsl(228, 12%, 48%);
+    --Dark-grayish-blue: hsl(228, 58%, 64%);
     --White: hsl(0, 0%, 100%);
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
+}
+a{
+    text-decoration: none;
+    color: goldenrod;
 }
 body{
     height: 100vh;
@@ -65,7 +70,7 @@ ul >li:hover{
     max-width: 600px;
     height: 400px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 300px 300px;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -135,4 +140,64 @@ ul >li:hover{
 }
 .btn > button:hover{
     background-color: var(--Dark-grayish-blue);
+    color: var(--White);
+}
+.table td,.table th{
+    border: 1px solid var(--Dark-cyan);
+}
+#add{
+  text-align: center;
+}
+#add button{
+    padding: 0.5rem 1rem;
+    background-color: var(--Dark-cyan);
+    color: goldenrod;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--White);
+    padding: 1rem;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.cart-btn{
+    background-color:var(--Dark-cyan);
+    color: goldenrod;
+    padding: 0.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.cart-btn:hover{
+    background-color: var(--Dark-grayish-blue);
+    color: var(--White);
+}
+.close{
+    cursor: pointer;
+    align-self: flex-end;
+    transition: transform 0.3s ease-in-out;
+}
+.close:hover{
+    transform: scale(1.2);
+}
+.quantity{
+    font-family: 'Fraunces', sans-serif; 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--White);
+    color: var(--Very-dark-blue);
+    position: absolute;
+    top: 1%;
+    right: 8%;
 }
