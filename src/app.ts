@@ -50,22 +50,22 @@ function showArticlesList() {
   table.classList.add("table");
   const tr0 = document.createElement("tr");
   tr0.innerHTML = `
-  <th>Type;</th>
+  <th id="type-th">Type;</th>
   <th>Name</th>
-  <th>Description</th>
+  <th id="desc-th">Description</th>
   <th>Price</th>
-  <th>Previous price</th>
+  <th id="alt-th">Previous price</th>
   <th>Action</th>`;
   table.appendChild(tr0);
 
   obj.forEach((article, index) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-  <td>${article.typeArticle}</td>
+  <td id="type">${article.typeArticle}</td>
   <td>${article.name}</td>
-  <td>${article.desc}</td>
+  <td id="desc">${article.desc}</td>
   <td>${article.price}</td>
-  <td>${article.altPrice}</td>
+  <td id="alt">${article.altPrice}</td>
   <td id="add"><button data-index="${index}" class="add-btn" >Add</button></td>`;
     table.appendChild(tr);
   });
@@ -118,7 +118,8 @@ function eventCart() {
     const price = document.querySelector(".actual-price") as HTMLElement;
     const cart = new Cart(nameArticle.innerHTML, price.innerHTML);
     const cartElement = cart.render();
-    document.body.appendChild(cartElement);
+    const header = document.querySelector("header") as HTMLElement;
+    header.appendChild(cartElement);
     eventClose();
   });
 }
@@ -131,8 +132,9 @@ function eventClose() {
   });
 }
 
-showArticle(chosenObj);
-eventCart();
 articlesList.addEventListener("click", (e: Event) => {
   showArticlesList();
 });
+
+showArticle(chosenObj);
+eventCart();

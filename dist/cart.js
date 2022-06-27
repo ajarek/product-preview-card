@@ -4,8 +4,8 @@ export class Cart {
         this.price = price;
     }
     render() {
-        const cart = document.createElement('div');
-        cart.classList.add('cart');
+        const cart = document.createElement("div");
+        cart.classList.add("cart");
         cart.innerHTML = `
         <div class="close">❌</div>
         <div class="cart-name">${this.name}</div>
